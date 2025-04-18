@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bestbuy-config
+data:
+  ORDER_QUEUE_NAME: "orders"
+  USE_WORKLOAD_IDENTITY_AUTH: "false"
+  ORDER_DB_NAME: "orderdb"
+  ORDER_DB_COLLECTION_NAME: "orders"
+  ORDER_QUEUE_PORT: "5671"
+  ORDER_QUEUE_TRANSPORT: "tls"
+  PORT: "3000"

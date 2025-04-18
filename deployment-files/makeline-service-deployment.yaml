@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: makeline-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: makeline-service
+  template:
+    metadata:
+      labels:
+        app: makeline-service
+    spec:
+      containers:
+        - name: makeline-service
+          image: dejmartins/makeline-service:latest
+          ports:
+            - containerPort: 3001
+          envFrom:
+            - secretRef:
+                name: bestbuy-secrets
+            - configMapRef:
+                name: bestbuy-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: makeline-service
+spec:
+  selector:
+    app: makeline-service
+  ports:
+    - port: 3001
+      targetPort: 3001
+  type: ClusterIP
