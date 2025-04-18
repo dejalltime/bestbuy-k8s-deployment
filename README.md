@@ -144,6 +144,5 @@ Use `configmap.yaml` for:
 - [x] Azure Service Bus Integrated
 - [x] Secrets managed via K8s
 - [x] Deployed to AKS
-- [x] AI service with OpenAI ready
 
 ---
